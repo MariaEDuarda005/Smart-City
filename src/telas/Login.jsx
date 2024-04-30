@@ -8,11 +8,10 @@ export const Login = () => {
     const [usuario, setUsuario] = useState('')
     const [senha, setSenha] = useState('')
 
-
     const navigation = useNavigation()
 
     function abrirInicial(){
-        navigation.navigate('inicial')
+        navigation.navigate('rotasTab')
     }
 
     return(

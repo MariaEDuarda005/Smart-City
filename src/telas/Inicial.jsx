@@ -9,12 +9,12 @@ export const Inicial = () => {
 
       <Cabecalho 
         titulo="Localizador"
-        subtitulo="2DS-B"
+        subtitulo="Inicial"
       />
 
-      <Botao texto="Usuários" />
+      {/* <Botao texto="Usuários" />
       <Botao texto="Sensores" />
-      <Botao texto="Sobre" />
+      <Botao texto="Sobre" /> */}
 
     </View>
   );
