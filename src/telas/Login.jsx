@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 
@@ -16,6 +16,11 @@ export const Login = () => {
 
     return(
         <View style={estilos.conteiner}>
+
+            <Image
+                style={estilos.imagem}
+                source={require('../../assets/logo.png')}
+            />
            
            <TextInput
                 style={estilos.campo}
@@ -86,4 +91,8 @@ const estilos = StyleSheet.create({
         color: '#fff',
         fontSize: 16,
     },
+    imagem: {
+        width: 200,
+        height: 170
+    }
 })

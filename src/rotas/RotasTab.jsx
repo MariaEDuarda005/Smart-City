@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Inicial } from '../telas/Inicial'
 import { Usuarios } from '../telas/Usuarios'
 import {AmbientesEquipamentos} from  '../telas/AmbientesEquipamentos'
-import { House, Users, Compass, ArrowsInCardinal } from 'phosphor-react-native'
+import {Feather} from '@expo/vector-icons';
 
 const { Navigator, Screen } = createBottomTabNavigator()
 
@@ -26,7 +26,11 @@ export function RotasTab(){
                 component={Inicial}
                 options={{
                     tabBarIcon: ({color, size}) => (
-                        <House color={color} size={size}/>
+                        <Feather 
+                            name="home" 
+                            size={size} 
+                            color={color}
+                        />
                     )
                 }}
             />
@@ -36,7 +40,11 @@ export function RotasTab(){
                 component={Usuarios}
                 options={{
                     tabBarIcon: ({color, size}) => (
-                        <Users color={color} size={size}/>
+                        <Feather 
+                            name="user" 
+                            size={size} 
+                            color={color}
+                        />
                     )
                 }}
             />
@@ -46,7 +54,11 @@ export function RotasTab(){
                 component={AmbientesEquipamentos}
                 options={{
                     tabBarIcon: ({color, size}) => (
-                        <Compass color={color} size={size}/>
+                        <Feather 
+                            name="compass" 
+                            size={size} 
+                            color={color} 
+                        />
                     )
                 }}
             />

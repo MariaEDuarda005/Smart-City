@@ -1,6 +1,5 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
-import {UserMinus} from 'phosphor-react-native'
-
+import {Feather} from '@expo/vector-icons'
 
 export const Usuario = ({nome, email, telefone, usuario, senha, excluir}) => {
     return(
@@ -19,10 +18,10 @@ export const Usuario = ({nome, email, telefone, usuario, senha, excluir}) => {
                 onPress={excluir}
             >
                 <Text>
-                    <UserMinus 
-                        size={28} 
-                        color="#FFF"
-                    />               
+                    <Feather 
+                        name="user-minus" 
+                        size={24} color="white" 
+                    />            
                 </Text>
             </TouchableOpacity>            
 

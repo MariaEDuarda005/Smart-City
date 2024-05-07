@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native'
+import {StyleSheet, View, ImageBackground} from 'react-native'
 import {Cabecalho} from '../componentes/Cabecalho'
 import {Botao} from '../componentes/Botao'
 
@@ -12,10 +12,16 @@ export const Inicial = () => {
         subtitulo="Inicial"
       />
 
-      {/* <Botao texto="Usuários" />
-      <Botao texto="Sensores" />
-      <Botao texto="Sobre" /> */}
+      <ImageBackground
+        style={estilos.imagem}
+        source={require('../../assets/localizar.png')}>
 
+          <Botao texto='teste 1'/>
+          <Botao texto='teste 2'/>
+          <Botao texto='teste 3'/>
+          <Botao texto='teste 4'/>
+          
+      </ImageBackground>
     </View>
   );
 }
@@ -24,6 +30,11 @@ const estilos = StyleSheet.create({
   conteiner: {
     flex: 1,
     backgroundColor: '#080a0c'
+  },
+  imagem:{
+    flex: 1,
+    flexWrap: 'wrap',
+    resizeMode: 'cover'
   },
 });
 
