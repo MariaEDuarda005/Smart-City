@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { StyleSheet, TouchableOpacity, Text } from 'react-native'
 
+interface BotaoProps {
+  texto: string;
+}
 
-export const Botao = ({texto}) => {
+export const Botao = ({texto}: BotaoProps) => {
 
   // State
   const [cliques, setCliques] = useState(0)

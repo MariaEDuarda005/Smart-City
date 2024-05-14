@@ -2,8 +2,17 @@ import { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import {Feather} from '@expo/vector-icons'
 
+interface FormularioUsuarioProps {
+    adicionar: (
+        nome: string, 
+        email: string, 
+        telefone: string, 
+        usuario: string, 
+        senha: string
+    ) => void
+}
 
-export const FormularioUsuario = ({adicionar}) => { 
+export const FormularioUsuario = ({adicionar}: FormularioUsuarioProps) => { 
 
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')

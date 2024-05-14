@@ -2,8 +2,19 @@ import { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import { UserPlus } from 'phosphor-react-native'
 
+interface FormularioAmbienteEquipamentoProps {
+    adicionar: (
+        descricao: string, 
+        statusOperacional: string, 
+        instrucoesSeguranca: string,
+        contatoResponsavel: string,
+        latitude: string,
+        longitude: string,
+    ) => void
+}
 
-export const FormularioAmbienteEquipamento = ({adicionar}) => { 
+
+export const FormularioAmbienteEquipamento = ({adicionar}: FormularioAmbienteEquipamentoProps) => { 
 
     const [descricao, setDescricao] = useState('')
     const [statusOperacional, setStatusOperacional] = useState('')

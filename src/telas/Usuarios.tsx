@@ -5,15 +5,24 @@ import { FormularioUsuario } from '../componentes/FormularioUsuario'
 import { ListaUsuarios } from "../componentes/ListaUsuarios"
 import uuid from 'react-native-uuid'
 
+interface UsuarioProps {
+    codigo: string;
+    nome: string;
+    email: string;
+    telefone: string; 
+    usuario: string;
+    senha: string;
+}
 
 export const Usuarios = () => { 
 
-    const [usuarios, setUsuarios] = useState([])
+    const [usuarios, setUsuarios] = useState<UsuarioProps[]>([])
 
-    const adicionarUsuario = (nome, email, telefone, usuario, senha) => {
+    const adicionarUsuario = (nome:string, email:string, telefone:string, 
+                              usuario:string, senha:string) => {
 
-        let novoUsuario = {
-            codigo: uuid.v4(),
+        let novoUsuario: UsuarioProps = {
+            codigo: String(uuid.v4()),
             nome: nome,
             email: email,
             telefone: telefone,
@@ -25,7 +34,7 @@ export const Usuarios = () => {
     }
 
 
-    const removerUsuario = (codigo) => {
+    const removerUsuario = (codigo:string) => {
 
         setUsuarios( usuarios.filter(
             usuario => usuario.codigo !== codigo

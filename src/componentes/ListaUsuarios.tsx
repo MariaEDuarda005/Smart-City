@@ -1,8 +1,21 @@
 import {View, Text, FlatList, StyleSheet} from 'react-native'
 import {Usuario} from './Usuario'
 
+interface UsuarioProps {
+    codigo: string;
+    nome: string;
+    email: string;
+    telefone: string; 
+    usuario: string;
+    senha: string;
+}
 
-export const ListaUsuarios = ({colecao, remover}) => {
+interface ListaUsuariosProps {
+    colecao: UsuarioProps[];
+    remover: (codigo:string) => void;
+}
+
+export const ListaUsuarios = ({colecao, remover}:ListaUsuariosProps) => {
 
     return(
         <View style={estilos.conteiner}>

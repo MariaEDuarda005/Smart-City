@@ -1,7 +1,16 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
 import {Feather} from '@expo/vector-icons'
 
-export const Usuario = ({nome, email, telefone, usuario, senha, excluir}) => {
+interface UsuarioProps {
+    nome: string;
+    email: string;
+    telefone: string; 
+    usuario: string;
+    senha: string;
+    excluir: () => void
+}
+
+export const Usuario = ({nome, email, telefone, usuario, senha, excluir}: UsuarioProps) => {
     return(
         <View style={estilos.conteiner}>
 

@@ -5,20 +5,29 @@ import { FormularioAmbienteEquipamento } from '../componentes/FormularioAmbiente
 import { ListaAmbienteEquipamento } from "../componentes/ListaAmbienteEquipamento"
 import uuid from 'react-native-uuid'
 
+interface AmbientesEquipamentosProps {
+    codigo: string;
+    descricao: string; 
+    statusOperacional: string; 
+    instrucoesSeguranca: string; 
+    contatoResponsavel: string;
+    latitude: string;
+    longitude: string;
+}
 
 export const AmbientesEquipamentos = () => { 
 
-    const [ambientesEquipamentos, setAmbientesEquipamentos] = useState([])
+    const [ambientesEquipamentos, setAmbientesEquipamentos] = useState<AmbientesEquipamentosProps[]>([])
 
-    const adicionarAmbienteEquipamento = (descricao, 
-                                          statusOperacional, 
-                                          instrucoesSeguranca, 
-                                          contatoResponsavel,
-                                          latitude,
-                                          longitude) => {
+    const adicionarAmbienteEquipamento = (descricao: string, 
+                                          statusOperacional: string, 
+                                          instrucoesSeguranca: string, 
+                                          contatoResponsavel: string,
+                                          latitude: string,
+                                          longitude: string) => {
 
-        let novoAmbienteEquipamento = {
-            codigo: uuid.v4(),
+        let novoAmbienteEquipamento: AmbientesEquipamentosProps = {
+            codigo: String(uuid.v4()),
             descricao: descricao,
             statusOperacional: statusOperacional,
             instrucoesSeguranca: instrucoesSeguranca,
@@ -31,7 +40,7 @@ export const AmbientesEquipamentos = () => {
     }
 
 
-    const removerAmbienteEquipamento = (codigo) => {
+    const removerAmbienteEquipamento = (codigo: string) => {
 
         setAmbientesEquipamentos( ambientesEquipamentos.filter(
             ambienteEquipamento => ambienteEquipamento.codigo !== codigo

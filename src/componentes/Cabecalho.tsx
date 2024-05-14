@@ -1,7 +1,11 @@
 import { StyleSheet, View, Text } from 'react-native'
 
+interface CabecalhoProps{
+  titulo: string;
+  subtitulo?: string;
+}
 
-export const Cabecalho = ({titulo, subtitulo}) => {
+export const Cabecalho = ({titulo, subtitulo}: CabecalhoProps) => {
   return (
     <View style={estilos.conteiner}>
       <Text style={estilos.texto}>{titulo}</Text>

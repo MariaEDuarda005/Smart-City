@@ -1,6 +1,16 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
 import {UserMinus} from 'phosphor-react-native'
 
+// definição de tipo
+interface  AmbienteEquipametoProps {
+    descricao: string;
+    statusOperacional: string;
+    instrucoesSeguranca: string;
+    contatoResponsavel: string;
+    latitude: string;
+    longitude: string;
+    excluir: () => void; // todos string exceto o ultmo que é uma função
+}
 
 export const AmbienteEquipamento = ({descricao, 
                                      statusOperacional, 
@@ -8,7 +18,7 @@ export const AmbienteEquipamento = ({descricao,
                                      contatoResponsavel,
                                      latitude,
                                      longitude, 
-                                     excluir}) => {
+                                     excluir}: AmbienteEquipametoProps) => {
     return(
         <View style={estilos.conteiner}>
 
