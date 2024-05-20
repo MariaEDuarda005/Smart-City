@@ -1,0 +1,14 @@
+.conteiner {
+    background-color: var(--azul-escuro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 103px;
+}
+
+.conteiner p{
+    font-size: 2rem;
+    color: var(--cinza-claro);
+    margin: 0 16px 0 16px;
+}
+
