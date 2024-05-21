@@ -3,6 +3,7 @@ import { Inicial } from '../telas/Inicial'
 import { Usuarios } from '../telas/Usuarios'
 import {AmbientesEquipamentos} from  '../telas/AmbientesEquipamentos'
 import {Feather} from '@expo/vector-icons';
+import {Localizador} from '../telas/Localizador';
 
 const { Navigator, Screen } = createBottomTabNavigator()
 
@@ -28,6 +29,20 @@ export function RotasTab(){
                     tabBarIcon: ({color, size}) => (
                         <Feather 
                             name="home" 
+                            size={size} 
+                            color={color}
+                        />
+                    )
+                }}
+            />
+
+            <Screen
+                name='localizador'
+                component={Localizador}
+                options={{
+                    tabBarIcon: ({color, size}) => (
+                        <Feather 
+                            name="map" 
                             size={size} 
                             color={color}
                         />
