@@ -1,11 +1,37 @@
-form{
+.conteiner{
     display: flex;
     flex-direction: column;
-    align-content: center;
+    height: 100vh;
     justify-content: center;
     align-items: center;
+    background-color: var(--cinza-claro);
 }
 
-label{
-    padding: 15px;
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--azul-escuro);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+input{
+    margin-bottom: 20px;
+    height: 40px;
+    width: 300px;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+button{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--preto);
 }
