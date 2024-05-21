@@ -1,0 +1,11 @@
+form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+label{
+    padding: 15px;
+}
