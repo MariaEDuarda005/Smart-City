@@ -1,7 +1,8 @@
 import estilos from './Inicial.module.css'
 import { Cabecalho } from '../componentes/Cabecalho' 
 import { Lateral } from '../componentes/Lateral'
-import { Formulario } from '../componentes/Formulario'
+import { CadastroSensores } from '../componentes/CadastroSensores'
+import { Conteudo } from '../componentes/Conteudo'
 
 export function Inicial() {
 
@@ -9,7 +10,7 @@ export function Inicial() {
         <div className={estilos.gridConteiner}>
           <Cabecalho/>
           <Lateral/>
-          <Formulario/>
+          <CadastroSensores/>
         </div>
     )
   }

@@ -5,7 +5,9 @@ export function Cabecalho() {
     return(
         <header className={estilos.conteiner}>
             <p>Smart City</p>
-            <BluetoothConnected size={32} />
+            <BluetoothConnected 
+                color='#fff'
+                size={32} />
         </header>
     )
 }

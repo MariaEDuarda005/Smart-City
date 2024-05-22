@@ -1,6 +1,6 @@
-import estilos from './Formulario.module.css'; 
+import estilos from './Conteudo.module.css'; 
 
-export function Formulario() {
+export function Conteudo() {
     return(
         <main className={estilos.conteiner}>
             <p>Smart City</p>

@@ -4,7 +4,8 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: var(--cinza-claro);
+    background: url("../assets/fundo.svg");
+    /* background-color: var(--cinza-claro); */
 }
 
 .formulario{
@@ -16,7 +17,7 @@
     background-color: var(--azul-escuro);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 input{
@@ -33,5 +34,6 @@ button{
     width: 100px;
     height: 30px;
     border-radius: 5px;
-    border: 1px solid var(--preto);
+    border: none;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 }

@@ -18,23 +18,23 @@ export function Lateral () {
 
                 <p 
                     className={estilos.botao}
-                    to='/inicial'
+                    to='/Leitura de sensores'
                 >
-                    Filmes
+                    Leitura de sensores
                 </p>
 
                 <p 
                     className={estilos.botao}
-                    to='perfil'
+                    to='Cadastro de sensores'
                 >
-                    Perfil
+                    Cadastro de sensores
                 </p>
 
                 <p 
                     className={estilos.botao}
-                    to='sobre'
+                    to='Cadastro de usuarios'
                 >
-                    Sobre
+                    Cadastro de usuarios
                 </p>
 
             </section>

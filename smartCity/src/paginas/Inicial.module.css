@@ -20,7 +20,7 @@
 }
 
 header {
-/* estilização do cebecalho */
+/* estilização do cabecalho */
 grid-area: cabecalho;
 }
 
@@ -30,6 +30,6 @@ grid-area: lateral;
 }
 
 main {
-    /* estilização do conteudo */
+/* estilização do conteudo */
 grid-area: conteudo;
 }

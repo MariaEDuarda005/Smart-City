@@ -1,0 +1,46 @@
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--azul-claro);
+    padding: 30px;
+    border-radius: 10px;
+    width: 45vh;
+    height: 60vh;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+.campo{
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.botao{
+    color: var(--preto);
+    border: none;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
