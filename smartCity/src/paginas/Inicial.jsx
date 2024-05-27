@@ -5,6 +5,7 @@ import { CadastroSensores } from '../componentes/CadastroSensores'
 import { Conteudo } from '../componentes/Conteudo'
 import { Perfil } from './Perfil'
 import { Tabela } from '../componentes/Tabela'
+import { Outlet } from 'react-router-dom'
 
 export function Inicial() {
 
@@ -12,7 +13,7 @@ export function Inicial() {
         <div className={estilos.gridConteiner}>
           <Cabecalho/>
           <Lateral/>
-          <Tabela/>
+          <Outlet/>
         </div>
     )
   }

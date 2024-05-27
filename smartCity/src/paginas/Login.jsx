@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import estilos from './Login.module.css'
+import { useNavigate } from 'react-router-dom'
 
 export function Login(){
+
 
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
+
+    const navigate = useNavigate()
 
     function obterDados(e){
         console.log("teste")
@@ -13,6 +17,7 @@ export function Login(){
         console.log(`Nome: ${nome}`)
         console.log(`Email: ${email}`)
         console.log(`Senha: ${senha}`)
+        navigate("inicial")
     }
 
     

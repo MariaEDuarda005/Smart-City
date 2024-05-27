@@ -2,13 +2,14 @@ import estilos from './Perfil.module.css'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { useNavigate } from 'react-router-dom'
 
 
 const schemaPerfil = z.object({
 
     nome: z.string()
-        .min(1, "Informe um nome")
-        .max(100, "Maximo de 100 caracteres"),
+        .min(5, "Informe um nome, minimo 5 caracter")
+        .max(50, "Maximo de 50 caracteres"),
 
     senha: z.string()
         .min(5, "Minimo de 5 caracteres")
@@ -18,6 +19,8 @@ const schemaPerfil = z.object({
 
 export function Perfil(){
 
+    const navigate = useNavigate()
+
     const { 
         register, 
         handleSubmit,
@@ -26,10 +29,22 @@ export function Perfil(){
         resolver: zodResolver(schemaPerfil)
     })
 
-    function obterDadosFormulario(data){
-        console.log(data)
-        console.log(`Nome: ${data.nome}`)
-        console.log(`Senha: ${data.senha}`)
+    async function obterDadosFormulario(data){
+        try{
+            // chamar a api
+            const response = await axios.post('http://127.0.0.1:8000/api/token', {
+                username: data.nome,
+                password: data.senha
+            });
+            const {access, refresh} = response.data;
+            localStorage.setItem('access_token', access);
+            localStorage.setItem('refresh_token', refresh);
+
+            console.log("Login foi bem sucedido");
+            navigate('/inicial')
+        }catch(error){
+            console.log("Erro na autenticação ", error)
+        }
     }
 
     return(
@@ -62,6 +77,9 @@ export function Perfil(){
                         </p>
                     )}
                 </label>
+
+                <button className={estilos.button} type='submit'>Enviar</button>
+
             </form>
         </div>
         

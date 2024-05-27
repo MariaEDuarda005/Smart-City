@@ -1,13 +1,13 @@
-import { Cabecalho } from './componentes/Cabecalho'
-import { CadastroSensores } from './componentes/CadastroSensores'
 import './global.css'
-import { Inicial } from './paginas/Inicial'
-import { Login } from './paginas/Login'
-
-function App() {
+import { BrowserRouter } from 'react-router-dom'
+import { Rotas } from './rotas/Rotas'
+ 
+export function App() {
   return (
-    <Inicial/>
+    <BrowserRouter>
+      <Rotas/>
+    </BrowserRouter>
   )
 }
-
+ 
 export default App
