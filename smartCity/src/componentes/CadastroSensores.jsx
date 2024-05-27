@@ -4,8 +4,8 @@ import estilos from './CadastroSensores.module.css';
 export function CadastroSensores() {
 
     const [descricao, setDescricao] = useState('')
-    const [statusOperacional, setStatusOperacional] = useState('')
-    const [instrucoes, setInstrucoes] = useState('')
+    const [unidadeMedida, setUnidadeMedida] = useState('')
+    const [localizacao, setLocalizacao] = useState('')
     const [contatoResponsavel, setContatoResponsavel] = useState('')
     const [latitude, setLatitude] = useState('')
     const [longitude, setLongitude] = useState('')
@@ -23,20 +23,20 @@ export function CadastroSensores() {
                 </label>
 
                 <label>
-                    Status Operacional
+                    Unidade de medida
                     <input
                         className={estilos.campo}  
                         type="text" 
-                        name="statusOperacional" 
+                        name="unidadeMedida" 
                     />
                 </label>
 
                 <label>
-                    Instrucões
+                    Localização
                     <input
                         className={estilos.campo}  
                         type="text" 
-                        name="instrucoes" 
+                        name="Localizacao" 
                     />
                 </label>
 

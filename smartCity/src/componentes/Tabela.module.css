@@ -1,0 +1,17 @@
+.tabela {
+    width: 100%;
+    border-collapse: collapse; /*define a separação entre as bordar*/
+    padding: 30px;
+    text-align: left;
+}
+
+.tabela th,
+.tabela td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tabela th {
+    background-color: #f2f2f2;
+}
