@@ -3,7 +3,10 @@ import { Login } from '../paginas/Login'
 import { Inicial } from '../paginas/Inicial'
 import { Perfil } from '../paginas/Perfil'
 import { Tabela } from '../componentes/Tabela'
-import { CadastroSensores } from '../componentes/CadastroSensores'
+import { CadastroSensores } from '../paginas/CadastroSensores'
+import { Sensor } from '../paginas/Sensor'
+import { Sensores } from '../componentes/Sensores'
+import { Card } from '../componentes/Card'
 
 export function Rotas(){
     return(
@@ -13,6 +16,7 @@ export function Rotas(){
                 <Route index element={<Tabela/>}/>
                 <Route path='perfil' element={<Perfil/>}/>
                 <Route path='cadastroSensores' element={<CadastroSensores/>}/>
+                <Route path='card' element={<Sensor/>}/>
             </Route>
         </Routes>
     )

@@ -1,0 +1,13 @@
+.conteiner{
+    display: flex;
+    width: 300px;
+    padding: 10px;
+    margin: 10px 5px;
+    border-radius: 8px;
+    transition: transform .25s;
+}
+
+.conteiner:hover{
+    transform: scale(1.015);
+    box-shadow: 0px 0px 10px 0px var(--roxo-escuro);
+}

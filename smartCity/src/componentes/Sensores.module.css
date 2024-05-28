@@ -1,0 +1,54 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--azul-claro);
+}
+
+.identificador{
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.icone{
+    margin-top: 8px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100% ;
+    background: var(--azul-escuro);
+}
+
+.containerInfo{
+    width: 95%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+.campo{
+    padding: 6px;
+    text-align: left;
+    font-size: 15px;
+    color: black;
+}
+
+.botao { 
+    display: flex;
+    background-color: var(--azul-escuro);
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    font-size: 15px;
+    color: var(--cinza-claro);
+    align-items: center;
+    justify-content: center;
+}

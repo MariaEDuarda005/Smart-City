@@ -28,7 +28,7 @@ export function Lateral () {
                     className={estilos.botao}
                     to='cadastroSensores'
                 >
-                    Cadastro de sensores
+                    Tabela de sensores
                 </Link>
 
                 <Link 
@@ -37,6 +37,14 @@ export function Lateral () {
                 >
                     Cadastro de usuarios
                 </Link>
+
+                <Link 
+                    className={estilos.botao}
+                    to='card'
+                >
+                    Cartões sensores
+                </Link>
+
 
             </section>
 

@@ -26,7 +26,7 @@ export function Login(){
         <div className={estilos.conteiner}>
             <form className={estilos.formulario} onSubmit={obterDados}>
                 <input
-                    className={estilos.input}  
+                    className={estilos.Logininput}  
                     type="text" 
                     name="nome" 
                     placeholder='Nome'
@@ -34,7 +34,7 @@ export function Login(){
                     onChange={e => setNome(e.target.value)}/>
 
                 <input 
-                    className={estilos.input} 
+                    className={estilos.Logininput}   
                     type="text" 
                     name="email" 
                     placeholder='Email'
@@ -42,7 +42,7 @@ export function Login(){
                     onChange={e => setEmail(e.target.value)}/>
 
                 <input 
-                    className={estilos.input} 
+                    className={estilos.Logininput}  
                     type="text" 
                     name="senha" 
                     placeholder='Senha'
