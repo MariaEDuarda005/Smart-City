@@ -3,12 +3,13 @@ import { StyleSheet } from "react-native"
 import { useEffect, useRef, useState } from 'react';
 // importação das bibliotecas para realização do mapa
 import MapView, { Marker } from 'react-native-maps';
+// Marker para adicoinar os marcadores
 import { 
   requestForegroundPermissionsAsync, 
   getCurrentPositionAsync, LocationObject, watchPositionAsync,
   LocationAccuracy
 } from 'expo-location'
-import { Cabecalho } from '../componentes/Cabecalho';
+import { Broadcast  } from 'phosphor-react-native'
 
 
 export const Localizador = ()  => {
@@ -54,6 +55,12 @@ export const Localizador = ()  => {
     })
   },[]);
 
+
+  // manipulando marcadores
+  // let [regiao, setRegiao] = useState({
+  //   latitude: -23.4422149, longitude: -46.9235461, 
+  //   latitudeDelta: 0.014, longitudeDelta: 0.014});
+
   return (
     <View style={styles.container}>
       {
@@ -74,6 +81,26 @@ export const Localizador = ()  => {
                 longitude: location.coords.longitude
             }}
         />
+
+        <Marker coordinate={{latitude: -22.914670, 
+          longitude: -47.068350}}>
+            <View style={styles.marcadorContainer}>
+              <Broadcast  
+                  size={15} 
+                  color="#ffffff"
+              />
+            </View>
+        </Marker>
+
+        <Marker coordinate={{latitude: -22.914874, 
+          longitude: -47.068190}}>
+            <View style={styles.marcadorContainer}>
+              <Broadcast  
+                  size={15} 
+                  color="#ffffff"
+              />
+            </View>
+        </Marker>
       </MapView>
       }
     </View>
@@ -90,5 +117,15 @@ const styles = StyleSheet.create({
     map:{
         flex:1,
         width: '100%'
+    },
+    marcadorContainer: {
+      width: 20,
+      height: 20,
+      backgroundColor: '#317586',
+      flexDirection: 'column',
+      borderRadius: 100,
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
     }
 })
