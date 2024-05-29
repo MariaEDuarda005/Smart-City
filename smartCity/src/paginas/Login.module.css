@@ -1,38 +1,29 @@
-.conteiner{
+.container{
     display: flex;
     flex-direction: column;
     height: 100vh;
     justify-content: center;
     align-items: center;
     background: url("../assets/fundo.svg");
-    /* background-color: var(--cinza-claro); */
 }
 
 .formulario{
+    width: 400px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    background-color: var(--azul-escuro);
-    padding: 30px;
-    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    background-color: var(--azul-escuro);
+    border-radius: 9px;
 }
 
-.Logininput{
-    margin-bottom: 20px;
-    height: 40px;
+label{
+    color: var(--cinza-claro);
+}
+
+.tamanhoInput{
     width: 300px;
-    border: none;
-    border-radius: 3px;
-    padding: 5px;
-}
-
-button{
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    height: 40px;
 }

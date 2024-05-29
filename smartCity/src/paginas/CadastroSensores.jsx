@@ -176,6 +176,7 @@ export function CadastroSensores() {
                 )}
                 <label>Status Operacional</label>
                 <input
+                    className={estilos.checkbox}
                     type="checkbox"
                     {...register('status_operacional')}
                     value={status_operacional}

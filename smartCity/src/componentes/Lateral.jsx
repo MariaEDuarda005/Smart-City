@@ -21,21 +21,21 @@ export function Lateral () {
                     className={estilos.botao}
                     to='/inicial'
                 >
-                    Leitura de sensores
+                    Tabela
                 </Link>
 
                 <Link 
                     className={estilos.botao}
                     to='cadastroSensores'
                 >
-                    Tabela de sensores
+                    Cadastro
                 </Link>
 
                 <Link 
                     className={estilos.botao}
                     to='perfil'
                 >
-                    Cadastro de usuarios
+                    Usuarios
                 </Link>
 
                 <Link 

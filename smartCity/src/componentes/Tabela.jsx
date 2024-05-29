@@ -3,6 +3,9 @@ import estilos from './Tabela.module.css'
 export function Tabela(){
     return(
         <div className={estilos.container}>
+
+            <h1 className={estilos.titulo}>Tabela dos dados</h1>
+
             <table className={estilos.tabela}>
                 <thead>
                 <tr>

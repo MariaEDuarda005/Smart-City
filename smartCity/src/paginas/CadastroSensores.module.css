@@ -24,9 +24,10 @@
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 6px;
+    height: 35px;
     width: 100%;
     border: 1px solid #ccc;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 label {
@@ -73,8 +74,8 @@ p {
 
 input {
     margin-bottom: 20px;
-    height: 40px;
-    width: 300px;
+    height: 35px;
+    width: 100px;
     border: none;
     border-radius: 3px;
     padding: 5px;
@@ -82,5 +83,5 @@ input {
 }
 
 .checkbox{
-    width: 30px;
+    width: 20px;
 }

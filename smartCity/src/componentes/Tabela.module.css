@@ -1,3 +1,10 @@
+.titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
 .tabela {
     width: 100%;
     border-collapse: collapse; /*define a separação entre as bordas*/
@@ -7,7 +14,7 @@
 
 .tabela th,
 .tabela td {
-    border: 1px solid #dddddd;
+    border: 1px solid var(--azul-escuro);
     padding: 8px;
     text-align: left;
 }
