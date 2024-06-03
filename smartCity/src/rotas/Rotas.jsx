@@ -7,16 +7,17 @@ import { CadastroSensores } from '../paginas/CadastroSensores'
 import { Sensor } from '../paginas/Sensor'
 import { Sensores } from '../componentes/Sensores'
 import { Card } from '../componentes/Card'
+import { Localizacao } from '../paginas/Localizacao'
 
 export function Rotas(){
     return(
         <Routes>
             <Route path='/' element={ <Login/> }/>
             <Route  path='/inicial' element={<Inicial/>}>
-                <Route index element={<Tabela/>}/>
+                <Route index element={<CadastroSensores/>}/>
                 <Route path='perfil' element={<Perfil/>}/>
-                <Route path='cadastroSensores' element={<CadastroSensores/>}/>
                 <Route path='card' element={<Sensor/>}/>
+                <Route path='mapa' element={<Localizacao/>}/>
             </Route>
         </Routes>
     )

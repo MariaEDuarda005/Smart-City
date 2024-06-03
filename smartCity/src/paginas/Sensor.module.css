@@ -1,5 +1,79 @@
-.container {
+/*Se deixar os cards usar apenas esse css comentado*/
+
+/* .container {
     display:flex;
     height: 50%;
     flex-wrap: wrap;
+} */
+
+/*Se deixar a tabela usar apenas esse css descomentado*/
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.titulo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.tabela {
+    width: 100%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tabela th,
+.tabela td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.tabela th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.tabela tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabela tr:hover {
+    background-color: #f1f1f1;
+}
+
+.tabela tr {
+    transition: background-color 0.3s ease;
+}
+
+/* css do botão */
+
+.loadMoreButton {
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.loadMoreButton:hover {
+    background-color: #0056b3;
 }

@@ -8,7 +8,7 @@
 .tabela {
     width: 100%;
     border-collapse: collapse; /*define a separação entre as bordas*/
-    padding: 30px;
+    padding: 50px;
     text-align: left;
 }
 
@@ -20,5 +20,5 @@
 }
 
 .tabela th {
-    background-color: #f2f2f2;
+    background-color: #d6d6d6;
 }

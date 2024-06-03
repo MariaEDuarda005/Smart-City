@@ -25,8 +25,8 @@ export function Sensores({propsSensor}){
         
                 <Link 
                     className={estilos.botao}
-                    to='/inicial'>
-                        Visualizar tabela
+                    to='/inicial/mapa'>
+                        Visualizar mapa
                 </Link>
                 
                 

@@ -21,13 +21,6 @@ export function Lateral () {
                     className={estilos.botao}
                     to='/inicial'
                 >
-                    Tabela
-                </Link>
-
-                <Link 
-                    className={estilos.botao}
-                    to='cadastroSensores'
-                >
                     Cadastro
                 </Link>
 
@@ -43,6 +36,13 @@ export function Lateral () {
                     to='card'
                 >
                     Cartões sensores
+                </Link>
+
+                <Link 
+                    className={estilos.botao}
+                    to='mapa'
+                >
+                    Mapa
                 </Link>
 
 

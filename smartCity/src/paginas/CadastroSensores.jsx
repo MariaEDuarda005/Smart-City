@@ -3,6 +3,8 @@ import estilos from './CadastroSensores.module.css';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const TIPO_SENSOR_CHOICES = ['Temperatura', 'Contador', 'Luminosidade', 'Umidade'];
 const UNIDADE_MEDIDA_CHOICES = ['°C', 'qtd', 'cd', '%'];
@@ -17,14 +19,10 @@ const schemaCadastroSensores = z.object({
         .max(20, 'Mac Address deve ter no máximo 20 caracteres')
         .nullable()
         .optional(),
- 
-    latitude: z.string()
-        .max(9, 'Latitude deve ter no máximo 9 caracteres')
-        .min(1, 'Latitude deve ter no mínimo 1 caracter'),
- 
-    longitude: z.string()
-        .max(11, 'Longitude deve ter no máximo 11 caracteres')
-        .min(1, 'Longitude deve ter no mínimo 1 caracter'),
+
+    latitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'),
+    
+    longitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),
  
     localizacao: z.string()
         .max(100, 'Máximo de 100 caracteres')
@@ -47,7 +45,7 @@ const schemaCadastroSensores = z.object({
 })
 
 export function CadastroSensores() {
-
+    const navigate = useNavigate();
     const { 
         register, 
         handleSubmit,
@@ -66,13 +64,24 @@ export function CadastroSensores() {
     const [status_operacional, setStatus_operacional] = useState('')
     const [observacao, setObservacao] = useState('')
 
-    function obterDadosFormulario(data) {
-        console.log(data);
+    async function obterDadosFormulario(data) {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/sensores/', data, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                }
+            });
+
+            alert('Sensor cadastrado com sucesso!'); // mensagem de alerta
+            navigate('/inicial/perfil'); // Redireciona para a página inicial após o cadastro
+        } catch (error) {
+            console.error('Erro no cadastro de sensor', error);
+        }
     }
 
     return(
         <div className={estilos.conteiner}>
-            <form className={estilos.formulario}>
+            <form className={estilos.formulario}  onSubmit={handleSubmit(obterDadosFormulario)}>
             {errors.tipo && (
                     <p>{errors.tipo.message}</p>
                 )}
