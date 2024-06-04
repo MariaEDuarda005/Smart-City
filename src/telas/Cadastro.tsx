@@ -25,6 +25,8 @@ export const Cadastro = () => {
         setSenha(senha)
     }
 
+    
+
     return(
         <>
             <Cabecalho titulo="Cadastro" />  
