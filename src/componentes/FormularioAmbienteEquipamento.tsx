@@ -1,27 +1,48 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import { UserPlus } from 'phosphor-react-native'
+import { useNavigation } from "@react-navigation/native";
+import { useAuth } from "./AuthContext";
+import axios from 'axios'
 
-interface FormularioAmbienteEquipamentoProps {
-    adicionar: (
-        descricao: string, 
-        statusOperacional: string, 
-        instrucoesSeguranca: string,
-        contatoResponsavel: string,
-        latitude: string,
-        longitude: string,
-    ) => void
-}
+export const FormularioAmbienteEquipamento:React.FC = () => { 
 
-
-export const FormularioAmbienteEquipamento = ({adicionar}: FormularioAmbienteEquipamentoProps) => { 
-
-    const [descricao, setDescricao] = useState('')
-    const [statusOperacional, setStatusOperacional] = useState('')
-    const [instrucoesSeguranca, setInstrucoesSeguranca] = useState('')
-    const [contatoResponsavel, setContatoResponsavel] = useState('')
+    const [tipo, setTipo] = useState('')
+    const [mac_address, setMac_address] = useState('')
     const [latitude, setLatitude] = useState('')
     const [longitude, setLongitude] = useState('')
+    const [localizacao, setLocalizacao] = useState('')
+    const [responsavel, setResponsavel] = useState('')
+    const [unidade_medida, setUnidade_medida] = useState('')
+    const [status_operacional, setStatus_operacional] = useState('')
+    const [observacao, setObservacao] = useState('')
+
+    const navigation = useNavigation()
+    const { setToken } = useAuth()
+
+    const fazerCadastroSensor = async () => {
+        try{
+            const response = await axios.post('http://10.0.2.2:8000/api/sensores/',
+                {
+                    tipo: tipo,
+                    mac_address: mac_address,
+                    latitude: latitude,
+                    longitude: longitude,
+                    localizacao: localizacao,
+                    responsavel: responsavel,
+                    unidade_medida: unidade_medida,
+                    status_operacional: status_operacional,
+                    observacao: observacao
+                }
+            )
+            const token = response.data.access;
+            console.log('Cadastro bem sucedido ', token)
+            setToken(token)
+        }catch (error) {
+            // Se houver um erro no cadastro, você pode exibir uma mensagem de erro
+            console.error('Erro de cadastro:', error);
+        }
+    };
 
     return(
         <View style={estilos.conteiner}>
@@ -29,44 +50,28 @@ export const FormularioAmbienteEquipamento = ({adicionar}: FormularioAmbienteEqu
             <View style={estilos.conteinerCampos}>
                 <TextInput
                     style={estilos.campo}
-                    placeholder='Descrição' 
+                    placeholder='Tipo' 
                     placeholderTextColor='#01233c'
                     keyboardType='default'
-                    onChangeText={setDescricao}
-                    value={descricao}
+                    onChangeText={setTipo}
+                    value={tipo}
                 />
                 <TextInput 
                     style={estilos.campo}
-                    placeholder='Status operacional'
+                    placeholder='Mac Address'
                     placeholderTextColor='#01233c'
                     keyboardType='default'
-                    onChangeText={setStatusOperacional}
-                    value={statusOperacional}      
+                    onChangeText={setMac_address}
+                    value={mac_address}      
                 />
-                <TextInput 
-                    style={estilos.campo}
-                    placeholder='Instruções de segurança'
-                    placeholderTextColor='#01233c'    
-                    keyboardType='default'           
-                    onChangeText={setInstrucoesSeguranca}
-                    value={instrucoesSeguranca}
-                />
-                <TextInput 
-                    style={estilos.campo}
-                    placeholder='Contato do responsável'
-                    placeholderTextColor='#01233c'
-                    keyboardType='default'                
-                    onChangeText={setContatoResponsavel}
-                    value={contatoResponsavel}
-                />      
                 <TextInput 
                     style={estilos.campo}
                     placeholder='Latitude'
-                    placeholderTextColor='#01233c'
-                    keyboardType='default'                
+                    placeholderTextColor='#01233c'    
+                    keyboardType='default'           
                     onChangeText={setLatitude}
                     value={latitude}
-                />           
+                />
                 <TextInput 
                     style={estilos.campo}
                     placeholder='Longitude'
@@ -74,17 +79,52 @@ export const FormularioAmbienteEquipamento = ({adicionar}: FormularioAmbienteEqu
                     keyboardType='default'                
                     onChangeText={setLongitude}
                     value={longitude}
-                />                                 
+                />      
+                <TextInput 
+                    style={estilos.campo}
+                    placeholder='Localização'
+                    placeholderTextColor='#01233c'
+                    keyboardType='default'                
+                    onChangeText={setLocalizacao}
+                    value={localizacao}
+                />           
+                <TextInput 
+                    style={estilos.campo}
+                    placeholder='Responsavel'
+                    placeholderTextColor='#01233c'
+                    keyboardType='default'                
+                    onChangeText={setResponsavel}
+                    value={responsavel}
+                />  
+                <TextInput 
+                    style={estilos.campo}
+                    placeholder='Unidade de medida'
+                    placeholderTextColor='#01233c'
+                    keyboardType='default'                
+                    onChangeText={setUnidade_medida}
+                    value={unidade_medida}
+                /> 
+                <TextInput 
+                    style={estilos.campo}
+                    placeholder='status operacional'
+                    placeholderTextColor='#01233c'
+                    keyboardType='default'                
+                    onChangeText={setStatus_operacional}
+                    value={status_operacional}
+                /> 
+                <TextInput 
+                    style={estilos.campo}
+                    placeholder='observação'
+                    placeholderTextColor='#01233c'
+                    keyboardType='default'                
+                    onChangeText={setObservacao}
+                    value={observacao}
+                />                                
             </View>
 
             <TouchableOpacity 
                 style={estilos.botao}
-                onPress={ () => adicionar(descricao, 
-                                          statusOperacional, 
-                                          instrucoesSeguranca, 
-                                          contatoResponsavel, 
-                                          latitude,
-                                          longitude) }
+                onPress={fazerCadastroSensor}
             >
                 <Text>
                     <UserPlus 
@@ -110,7 +150,7 @@ const estilos = StyleSheet.create({
         flex: 1,
     },
     campo: {
-        height: 50,
+        height: 40,
         backgroundColor: '#dee2e6',
         color: '#01233c',
         marginVertical: 5,
@@ -120,7 +160,7 @@ const estilos = StyleSheet.create({
     },
     botao: {
         width: 60,
-        height: 350,
+        height: 445,
         marginStart: 10,
         backgroundColor: '#4f030a',
         justifyContent: 'center',

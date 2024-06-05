@@ -50,7 +50,7 @@ export function RotasTab(){
                 }}
             />
 
-            <Screen
+            {/* <Screen
                 name='usuarios'
                 component={Usuarios}
                 options={{
@@ -62,7 +62,7 @@ export function RotasTab(){
                         />
                     )
                 }}
-            />
+            /> */}
 
             <Screen
                 name='ambiente'

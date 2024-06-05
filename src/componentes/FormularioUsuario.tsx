@@ -1,24 +1,39 @@
 import { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import {Feather} from '@expo/vector-icons'
+import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
+import { useAuth } from '../componentes/AuthContext';
 
-interface FormularioUsuarioProps {
-    adicionar: (
-        nome: string, 
-        email: string, 
-        telefone: string, 
-        usuario: string, 
-        senha: string
-    ) => void
-}
+export const FormularioUsuario: React.FC = () => {
 
-export const FormularioUsuario = ({adicionar}: FormularioUsuarioProps) => { 
+    const [nome, setNome] = useState('');
+    const [senha, setSenha] = useState('');
+    const [email, setEmail] = useState('');
+    const navigation = useNavigation();
+    const { setToken } = useAuth(); // Usando o contexto de autenticação
 
-    const [nome, setNome] = useState('')
-    const [email, setEmail] = useState('')
-    const [telefone, setTelefone] = useState('')
-    const [usuario, setUsuario] = useState('')
-    const [senha, setSenha] = useState('')
+    const fazerCadastro = async () => {
+        try {
+            // Fazer a requisição de cadastro
+            const response = await axios.post(
+                'http://10.0.2.2:8000/api/create_user/',
+                {
+                    username: nome,
+                    email: email,
+                    password: senha
+                }
+            );
+            const token = response.data.access;
+            console.log('cadastro bem-sucedido:', token);
+            setToken(token);
+            // Se o cadastro for bem-sucedido, navegar para a tela inicial
+            navigation.navigate('rotasTab');
+        } catch (error) {
+            // Se houver um erro no cadastro, você pode exibir uma mensagem de erro
+            console.error('Erro de cadastro:', error);
+        }
+    };
 
     return(
         <View style={estilos.conteiner}>
@@ -41,22 +56,6 @@ export const FormularioUsuario = ({adicionar}: FormularioUsuarioProps) => {
                 />
                 <TextInput 
                     style={estilos.campo}
-                    placeholder='Telefone'
-                    placeholderTextColor='#01233c'
-                    keyboardType='phone-pad'                
-                    onChangeText={setTelefone}
-                    value={telefone}
-                />
-                <TextInput 
-                    style={estilos.campo}
-                    placeholder='Usuário'
-                    placeholderTextColor='#01233c'
-                    keyboardType='default'                
-                    onChangeText={setUsuario}
-                    value={usuario}
-                />      
-                <TextInput 
-                    style={estilos.campo}
                     placeholder='Senha'
                     placeholderTextColor='#01233c'
                     keyboardType='phone-pad'                
@@ -65,17 +64,8 @@ export const FormularioUsuario = ({adicionar}: FormularioUsuarioProps) => {
                 />                          
             </View>
 
-            <TouchableOpacity 
-                style={estilos.botao}
-                onPress={ () => adicionar(nome, email, telefone, usuario, senha) }
-            >
-                <Text>
-                    <Feather
-                        name="user-plus"
-                        size={24}
-                        color='#dee2e6'
-                    />
-                </Text>
+            <TouchableOpacity style={estilos.botao} onPress={fazerCadastro}>
+                <Feather name="user-plus" size={24} color="#dee2e6" />
             </TouchableOpacity>
         </View>
     )
@@ -104,7 +94,7 @@ const estilos = StyleSheet.create({
     },
     botao: {
         width: 60,
-        height: 290,
+        height: 170,
         marginStart: 10,
         backgroundColor: '#4f030a',
         justifyContent: 'center',

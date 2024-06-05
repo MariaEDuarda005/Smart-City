@@ -15,37 +15,7 @@ interface AmbientesEquipamentosProps {
     longitude: string;
 }
 
-export const AmbientesEquipamentos = () => { 
-
-    const [ambientesEquipamentos, setAmbientesEquipamentos] = useState<AmbientesEquipamentosProps[]>([])
-
-    const adicionarAmbienteEquipamento = (descricao: string, 
-                                          statusOperacional: string, 
-                                          instrucoesSeguranca: string, 
-                                          contatoResponsavel: string,
-                                          latitude: string,
-                                          longitude: string) => {
-
-        let novoAmbienteEquipamento: AmbientesEquipamentosProps = {
-            codigo: String(uuid.v4()),
-            descricao: descricao,
-            statusOperacional: statusOperacional,
-            instrucoesSeguranca: instrucoesSeguranca,
-            contatoResponsavel: contatoResponsavel,
-            latitude: latitude,
-            longitude: longitude
-        } 
-
-        setAmbientesEquipamentos([...ambientesEquipamentos, novoAmbienteEquipamento])
-    }
-
-
-    const removerAmbienteEquipamento = (codigo: string) => {
-
-        setAmbientesEquipamentos( ambientesEquipamentos.filter(
-            ambienteEquipamento => ambienteEquipamento.codigo !== codigo
-        ) )
-    }
+export function AmbientesEquipamentos(){ 
 
     return(
         <View style={estilos.conteiner}>
@@ -54,14 +24,8 @@ export const AmbientesEquipamentos = () => {
                 titulo="Cadastro de ambientes ou equipamentos"
             />
 
-            <FormularioAmbienteEquipamento 
-                adicionar={adicionarAmbienteEquipamento}
-            />  
+            <FormularioAmbienteEquipamento/>  
 
-            <ListaAmbienteEquipamento 
-                colecao={ambientesEquipamentos}
-                remover={removerAmbienteEquipamento}
-            />
         </View>
     )
 }
