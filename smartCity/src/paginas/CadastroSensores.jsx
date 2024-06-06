@@ -25,12 +25,10 @@ const schemaCadastroSensores = z.object({
     longitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),
  
     localizacao: z.string()
-        .max(100, 'Máximo de 100 caracteres')
-        .min(3, 'Mínimo de 3 caracteres'),
+        .max(100, 'Máximo de 100 caracteres'),
  
     responsavel: z.string()
-        .max(100, 'Máximo de 100 caracteres')
-        .min(3, 'Mínimo de 3 caracteres'),
+        .max(100, 'Máximo de 100 caracteres'),
  
     unidade_medida: z.enum(UNIDADE_MEDIDA_CHOICES, {
         required_error: 'Unidade de Medida é obrigatória',

@@ -8,6 +8,8 @@ import { Sensor } from '../paginas/Sensor'
 import { Sensores } from '../componentes/Sensores'
 import { Card } from '../componentes/Card'
 import { Localizacao } from '../paginas/Localizacao'
+import { Filtro } from '../paginas/Filtro'
+import { AlterarSensor } from '../paginas/AlterarSensor'
 
 export function Rotas(){
     return(
@@ -16,8 +18,10 @@ export function Rotas(){
             <Route  path='/inicial' element={<Inicial/>}>
                 <Route index element={<CadastroSensores/>}/>
                 <Route path='perfil' element={<Perfil/>}/>
-                <Route path='card' element={<Sensor/>}/>
+                <Route path='sensores' element={<Sensor/>}/>
                 <Route path='mapa' element={<Localizacao/>}/>
+                <Route path='filtro' element={<Filtro />} />        
+                <Route path="sensores/alterarSensor/:id" element={<AlterarSensor/>}/>
             </Route>
         </Routes>
     )

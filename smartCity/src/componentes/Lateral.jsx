@@ -33,9 +33,9 @@ export function Lateral () {
 
                 <Link 
                     className={estilos.botao}
-                    to='card'
+                    to='sensores'
                 >
-                    Cartões sensores
+                    Sensores
                 </Link>
 
                 <Link 
@@ -44,6 +44,14 @@ export function Lateral () {
                 >
                     Mapa
                 </Link>
+                
+                <Link 
+                    className={estilos.botao}
+                    to='filtro'
+                >
+                    Filtro
+                </Link>
+                
 
 
             </section>
