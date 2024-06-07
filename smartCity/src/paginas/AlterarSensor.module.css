@@ -1,9 +1,12 @@
 .conteiner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 800px;
     margin: 120px auto; /* Reduzindo o margin-top para mover um pouco mais para cima */
     padding: 30px;
     width: 2050px;
-    top: 80%;
+    top: 60%;
 }
  
 .titulo {
@@ -22,7 +25,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 100%;
+    width: 600px;
     padding: 10px 10px;
 }
  
@@ -45,8 +48,8 @@
     font-size: 14px;
     margin-top: 10px;
 }
- 
-.botao:hover {
-    background-color:  #f1618a;
+
+.checkbox{
+    width: 25px;
+    height: 25px;
 }
- 

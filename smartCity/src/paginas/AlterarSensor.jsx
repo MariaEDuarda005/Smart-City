@@ -9,9 +9,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 //Schema de validação do formulário para checagem dos valores que foram colocados no form
 const schemaAlterarSensor = z.object({
     mac_address: z.string().max(20, 'Máximo de 20 caracteres').nullable(),
-    latitude: z.number().refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'),
-    longitude: z.number().refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),
-    localizacao: z.string().max(100, 'Máximo de 100 caracteres'),
+    latitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'),
+    longitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),    localizacao: z.string().max(100, 'Máximo de 100 caracteres'),
     responsavel: z.string().max(100, 'Máximo de 100 caracteres'),
     unidade_medida: z.string().max(20, 'Máximo de 20 caracteres').nullable(),
     status_operacional: z.boolean(),
@@ -49,6 +48,10 @@ export function AlterarSensor() {
  
     //pego os dados colocados no formulário e passo para o PUT!!o data aqui é o conj de info do form
     const onSubmit = async (data) => {
+
+        // Convertendo latitude e longitude para números
+        data.latitude = parseFloat(data.latitude);
+        data.longitude = parseFloat(data.longitude);
  
         console.log("Dados enviados para o PUT:", data);
         try {
@@ -104,7 +107,7 @@ export function AlterarSensor() {
                 {errors.unidade_medida && <p className={estilos.mensagem}>{errors.unidade_medida.message}</p>}
  
                 <label>Status Operacional</label>
-                <input {...register('status_operacional')} type="checkbox" />
+                <input {...register('status_operacional')}  className={estilos.checkbox} type="checkbox" />
                
                 <label>Observação</label>
                 <textarea {...register('observacao')} className={estilos.campo}></textarea>

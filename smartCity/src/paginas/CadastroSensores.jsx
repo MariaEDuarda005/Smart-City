@@ -71,7 +71,7 @@ export function CadastroSensores() {
             });
 
             alert('Sensor cadastrado com sucesso!'); // mensagem de alerta
-            navigate('/inicial/perfil'); // Redireciona para a página inicial após o cadastro
+            navigate('/inicial/sensores'); // Redireciona para a página inicial após o cadastro
         } catch (error) {
             console.error('Erro no cadastro de sensor', error);
         }
