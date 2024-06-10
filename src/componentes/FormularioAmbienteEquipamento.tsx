@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, Switch, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import { UserPlus } from 'phosphor-react-native'
 import { useNavigation } from "@react-navigation/native";
 import { useAuth } from "./AuthContext";
 import axios from 'axios'
+import {Picker} from '@react-native-picker/picker';
 
 export const FormularioAmbienteEquipamento:React.FC = () => { 
 
@@ -48,14 +49,17 @@ export const FormularioAmbienteEquipamento:React.FC = () => {
         <View style={estilos.conteiner}>
 
             <View style={estilos.conteinerCampos}>
-                <TextInput
+                <Picker
                     style={estilos.campo}
-                    placeholder='Tipo' 
-                    placeholderTextColor='#01233c'
-                    keyboardType='default'
-                    onChangeText={setTipo}
-                    value={tipo}
-                />
+                    selectedValue={tipo}
+                    onValueChange={(itemValue, itemIndex) => setTipo(itemValue)}
+                >
+                    <Picker.Item label="Selecione o tipo de sensor"/>
+                    <Picker.Item label="Temperatura" value="Temperatura" />
+                    <Picker.Item label="Contador" value="Contador" />
+                    <Picker.Item label="Luminosidade" value="Luminosidade" />
+                    <Picker.Item label="Umidade" value="Umidade" />
+                </Picker>
                 <TextInput 
                     style={estilos.campo}
                     placeholder='Mac Address'
@@ -104,22 +108,25 @@ export const FormularioAmbienteEquipamento:React.FC = () => {
                     onChangeText={setUnidade_medida}
                     value={unidade_medida}
                 /> 
-                <TextInput 
-                    style={estilos.campo}
-                    placeholder='status operacional'
-                    placeholderTextColor='#01233c'
-                    keyboardType='default'                
-                    onChangeText={setStatus_operacional}
-                    value={status_operacional}
-                /> 
-                <TextInput 
+            <TextInput 
                     style={estilos.campo}
                     placeholder='observação'
                     placeholderTextColor='#01233c'
                     keyboardType='default'                
                     onChangeText={setObservacao}
                     value={observacao}
-                />                                
+                />  
+                <View style={estilos.switch_box}>
+                    <Text style={estilos.statusTexto}>Status Operacional - {status_operacional ? "Ligado" : "Desligado"}</Text>
+                    <Switch
+                    trackColor={{ false: "#767577", true: "#81b0ff" }}
+                    thumbColor={status_operacional ? "#f5dd4b" : "#525153"}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={setStatus_operacional}
+                    value={status_operacional}
+                    />
+                </View>
+                                              
             </View>
 
             <TouchableOpacity 
@@ -149,22 +156,27 @@ const estilos = StyleSheet.create({
     conteinerCampos: {
         flex: 1,
     },
+    switch_box:{
+        alignItems: 'flex-start',
+    },
     campo: {
-        height: 40,
+        height: 50,
         backgroundColor: '#dee2e6',
         color: '#01233c',
         marginVertical: 5,
-        borderRadius: 5,
         padding: 10,
         fontSize: 16,
     },
     botao: {
         width: 60,
-        height: 445,
+        height: 545,
         marginStart: 10,
         backgroundColor: '#4f030a',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5,
+    },
+    statusTexto: {
+        color: '#fff',  // Cor do texto em branco
     },
   });

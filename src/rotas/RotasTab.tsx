@@ -3,6 +3,7 @@ import { Inicial } from '../telas/Inicial'
 import { Usuarios } from '../telas/Usuarios'
 import {AmbientesEquipamentos} from  '../telas/AmbientesEquipamentos'
 import {Feather} from '@expo/vector-icons';
+import { Crosshair, MapTrifold, ChartPolar } from 'phosphor-react-native';
 import {Localizador} from '../telas/Localizador';
 
 const { Navigator, Screen } = createBottomTabNavigator()
@@ -27,11 +28,7 @@ export function RotasTab(){
                 component={Inicial}
                 options={{
                     tabBarIcon: ({color, size}) => (
-                        <Feather 
-                            name="home" 
-                            size={size} 
-                            color={color}
-                        />
+                        <Crosshair size={size} color={color}/>
                     )
                 }}
             />
@@ -41,11 +38,7 @@ export function RotasTab(){
                 component={Localizador}
                 options={{
                     tabBarIcon: ({color, size}) => (
-                        <Feather 
-                            name="map" 
-                            size={size} 
-                            color={color}
-                        />
+                        <MapTrifold size={size} color={color}/>
                     )
                 }}
             />
@@ -69,11 +62,7 @@ export function RotasTab(){
                 component={AmbientesEquipamentos}
                 options={{
                     tabBarIcon: ({color, size}) => (
-                        <Feather 
-                            name="compass" 
-                            size={size} 
-                            color={color} 
-                        />
+                        <ChartPolar size={size} color={color}/>
                     )
                 }}
             />
